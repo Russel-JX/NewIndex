@@ -1,0 +1,94 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 62.5%;
+	font-family: Helvetica, sans-serif;
+	/* background: url(../images/index_images/stripe.png) repeat; */
+	background-color: 007a77;/*  0c6d61; */ /* #0b8b7d; */
+}
+
+#page-wrap {
+	width: 782px;
+	background: url(../images/index_images/wrap-bg.jpg) repeat-y white;
+	margin:80px 280px 10px 280px;
+}
+
+p {
+	font-size: 1.5em;
+	line-height: 1.5em;
+	margin-bottom: 0.8em;
+	}
+	p strong {
+		color: red;
+	}
+
+h1 { 
+	font-weight: normal; 
+	font-size: 2.2em; 
+	border-bottom: 1px dashed #ccc;
+	padding-bottom: 5px; margin-bottom: 10px;
+}
+
+.clear { clear: both; }
+
+#main-content {
+	padding: 10px 0px 20px 15px;
+	}
+	.header {
+	
+		width: 782px; height: 150px;
+		
+		/* DEFAULTS TO SUNNY */
+		background: url(../images/index_images/top4.jpg) no-repeat center center black;
+		}
+		.header-partlycloudy {
+			background:  no-repeat center center  rgb(45,74,84);
+		}
+		.header-rain {
+			background: url(../images/index_images/header-rain.png) no-repeat center center black;
+		}
+		.header-snow {
+			background: url(../images/index_images/header-snow.png) no-repeat center center black;
+		}
+		.header-sunny, .header-fair {
+			background: url(../images/index_images/header-sunny.png) no-repeat center center black;
+		}
+		.header-partly-cloudy, .header-cloudy, .header-mostly-cloudy {
+			background: url(../images/index_images/header-partlycloudy.png) no-repeat center center black;
+		}
+	#left-col {
+		width: 540px;
+		float: left;
+	}
+	#right-col {
+		width: 177px;
+		float: right;
+		text-align: center;
+		padding-bottom: 25px;
+		}
+		/* .weather-box {
+			width: 177px; height: 125px;
+			
+			DEFAULTS TO SUNNY
+			background: url(../images/index_images/weather-sunny.png) no-repeat center center white;
+			}
+			.rainy {
+				background: url(../images/index_images/weather-rain.png) no-repeat center center white;
+			}
+			.sunny, .fair {
+				background: url(../images/index_images/weather-sunny.png) no-repeat center center white;
+			}
+			.partly-cloudy, .cloudy, .mostly-cloudy {
+				background: url(../images/index_images/weather-partlycloudy.png) no-repeat center center white;
+			}
+			.snow {
+				background: url(../images/index_images/weather-snow.png) no-repeat center center white;
+			} */
+		#right-col p a {
+			display: block;
+			padding: 5px;
+		}
+	

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> 
+
+	<!-- 定义数据源 spring和Hibernate整合 使用C3P0 -->
+	<bean id="ds" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<!-- 指定连接数据库的驱动 -->
+		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
+		<!-- 数据库URL --> 
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl"></property>
+		<!-- 数据库用户名 -->
+		<property name="user" value="zb"></property>
+		<!-- 数据库用密码 -->
+		<property name="password" value="zb"></property>
+		
+		<!-- 
+		<property name="maxPoolSize" value="20"></property>
+		<property name="minPoolSize" value="1"></property>
+		<property name="initialPoolSize" value="1"></property>
+		<property name="maxIdleTime" value="20"></property>
+		 -->
+	</bean>
+	
+	<!-- 定义Hibernate的SessionFactory -->
+	<bean id="sf" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 把上面定义的数据源注入到这里的Session工厂中 -->
+		<property name="dataSource" ref="ds"></property>
+		<!-- 将多个映射文件(hbm.xml)注入 -->
+		<property name="mappingResources"> 
+			<list>
+				<value>com/pojo/ZbUser.hbm.xml</value>
+				<value>com/pojo/ZbL1.hbm.xml</value>
+				<value>com/pojo/ZbL2.hbm.xml</value>
+				<value>com/pojo/ZbDetail.hbm.xml</value>
+				<value>com/pojo/ZbData.hbm.xml</value>
+				<value>com/pojo/Formula.hbm.xml</value>
+			</list>
+		</property>
+		
+		<!-- 定义SessionFactory的属性。有两种方式，只能选一种-->
+		<property name="hibernateProperties">
+			<!-- 配置Sessionfactory的属性	方式一 -->
+			<!--  
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+			-->
+			<!-- 配置Sessionfactory的属性	hibernate.format_sql=true方式二 -->
+			<value>
+				hibernate.dialect=org.hibernate.dialect.OracleDialect
+				hibernate.show_sql=true
+				
+				hibernate.hbm2ddl.auto=update
+			</value>
+		</property>
+	</bean>
+	
+	
+
+	
+</beans>

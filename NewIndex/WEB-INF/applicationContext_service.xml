@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> 
+	
+	
+	<!-- 各种具体指标值统计计算服务层bean定义 -->
+	<bean id="threeQueryThreeDataServiceImpl" class="com.service.impl.ThreeQueryThreeDataServiceImpl">
+	</bean>
+	
+	<!-- 各种具体指标值统计计算服务层bean定义 -->
+	<bean id="dataReuseServiceImpl" class="com.service.impl.DataReuseServiceImpl">
+		<property name="dataReuseDao" ref="dataReuseDaoImpl"></property>
+	</bean>
+	
+</beans>

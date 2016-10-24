@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+/* #warp{ width:1160px; margin:0 auto;}
+#header{ height:113px; background: url(../images/header.jpg);}
+#footer{ height:75px; ;background: url(../images/footer.jpg);}
+#content{ margin:0 auto;line-height:34px;}
+#btn{ margin-top:50px;}
+
+#columns{ margin-top:35px;}
+
+.tr_01{ background-color:#FFFFFF;}
+.tr_01 td{ background:#FFFFFF;}
+.td_01{ font-size:12px; line-height:24px;}
+#title{ margin-top:2px;}
+#content_01{ border:#003300 4px solid; height:450px;}
+#sub{float:left; width:20%; margin-top:2px; margin-right:6px;} */
+
+.header .welcome p{ color:blue;font-size:18;font-weight: bolder;height:20px; }
+.header .welcome{ float:left; }
+
+
+/* .header.checkout a{text-decoration:none;  color:#ffffff;font-weight:bolder;font-size:14px;float:right; background-color:blue; width:44px;} */
+.header .checkout a{text-decoration:none;color:background;font-size:18;color:gray;}
+.header .checkout a:hover{text-decoration:blink;color:blue;font-size:20;}
+.header .checkout{float:right;}
+/*.header.checkout a:hover{text-decoration:none; background-color:gray; font-weight:bold;font-family: cursive;}*/
+
+.header .login a{text-decoration:none; color:green;font-size:18;}
+.header .login{ float:right; }
+.header .login a:hover{text-decoration:blink; color:green;color:blue;font-size:20;}
+
+/*登陆页面超链接*/
+.login_href a{ text-decoration:none; color:background; display:inline;font-size:18;   padding:5px;}
+.login_href a:hover{ text-decoration:blink; color:blue; display:inline;font-size:18;   padding:5px;}
+
+/* .pic_content{ width:30%; float:left; margin:2px; padding:4px; border:#333333 1px solid;}
+button{display:block; line-height:18px;}
+CSS sabrosus style pagination
+
+DIV.sabrosus {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 3px; PADDING-TOP: 3px; TEXT-ALIGN: left;
+}
+DIV.sabrosus A {
+	BORDER-RIGHT: #9aafe5 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #9aafe5 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #9aafe5 1px solid; COLOR: #2e6ab1; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #9aafe5 1px solid; TEXT-DECORATION: none
+}
+DIV.sabrosus A:hover {
+	BORDER-RIGHT: #2b66a5 1px solid; BORDER-TOP: #2b66a5 1px solid; BORDER-LEFT: #2b66a5 1px solid; COLOR: #000; BORDER-BOTTOM: #2b66a5 1px solid; BACKGROUND-COLOR: lightyellow
+}
+DIV.pagination A:active {
+	BORDER-RIGHT: #2b66a5 1px solid; BORDER-TOP: #2b66a5 1px solid; BORDER-LEFT: #2b66a5 1px solid; COLOR: #000; BORDER-BOTTOM: #2b66a5 1px solid; BACKGROUND-COLOR: lightyellow
+}
+DIV.sabrosus SPAN.current {
+	BORDER-RIGHT: navy 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: navy 1px solid; PADDING-LEFT: 5px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; BORDER-LEFT: navy 1px solid; COLOR: #fff; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: navy 1px solid; BACKGROUND-COLOR: #2e6ab1
+}
+DIV.sabrosus SPAN.disabled {
+	BORDER-RIGHT: #929292 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #929292 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; BORDER-LEFT: #929292 1px solid; COLOR: #929292; MARGIN-RIGHT: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #929292 1px solid
+} */

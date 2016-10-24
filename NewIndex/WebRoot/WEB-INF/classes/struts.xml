@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!--设置为开发模式，修改action不用重启服务器 -->
+	<constant name="struts.devModel" value="true"></constant>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+
+	<!-- 
+		解决struts框架把dwr处理类当做action的错误。HTTP Status 404 - There is no Action mapped for namespace / and action name dwr.
+		加入下面代码。可通过xx.do访问action
+	 -->
+	<constant name="struts.action.extension" value="do"></constant> 
+	
+	
+
+	
+	<!-- 引入struts-default.xml文件 --> 
+	<include file="struts-default.xml" />
+	
+	<package  name="indexPart" extends="json-default" ><!-- 引入json默认配置文件 -->
+		<!-- 字符编码拦截器 -->
+		<interceptors>
+			<interceptor name="charEnco" class="com.interceptor.CharacterEncoding"></interceptor>
+		</interceptors>
+		<!-- 拦截器	结束 -->
+		
+		<!-- 用户action配置	开始 -->
+		<!-- 用户登录验证、增加和修改用户 -->
+		<action name="userAction" class="ua">
+			<interceptor-ref name="charEnco"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="index" type="redirect">/index.jsp</result>
+			<result name="manage">/manage.jsp</result>
+			<result name="fill">/form_layout.jsp</result>
+			<result name="json" type="json"></result>
+		</action>
+		<!-- 查询所有用户 -->
+		<action name="uqAction" class="uqa">
+			<!-- 配置ext请求的json对象响应，逻辑视图的类型为“json”。将根据json插件包，返回json对象 -->
+			<result name="a" type="json">
+			</result>
+		</action>
+		<!-- struts结合json测试 -->
+		<action name="sjAction" class="sja">
+			<result type="json"></result>
+		</action>
+		<!-- 用户action配置	结束 -->
+		
+		<!-- 提交、修改、删除一级指标	开始 --><!-- action的方法无返回值，配置时，不要result，否则报没有结果错误 -->
+		<action name="oneAction" class="onea">
+			<interceptor-ref name="charEnco"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result type="json"></result>
+		</action>
+		<!-- 一级指标	结束 -->
+		
+		<!-- 提交、修改、删除二级指标	开始 -->
+		<!-- 提交二级指标 -->
+		<action name="twoAction" class="twoa">
+			<interceptor-ref name="charEnco"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result type="json"></result>
+		</action>
+		<!-- 在二级指标中，查询一级指标名和id -->
+		<action name="twoqAction" class="twoqa">
+			<interceptor-ref name="charEnco"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result type="json"></result>
+		</action>
+		<!-- 二级指标	结束 -->
+		
+		<!-- 三级指标	开始 -->
+		<!-- 提交、修改、删除三级指标 -->
+		<action name="threeAction" class="threea">
+			<result type="json"></result>
+		</action>
+		<!-- 在三级指标中，查询一级指标名和id -->
+		<action name="threeqoneAction" class="threeqonea">
+			<result type="json"></result>
+		</action>
+		<!-- 在三级指标中，查询二级指标名和id -->
+		<action name="threeqtwoAction" class="threeqtwoa">
+			<result type="json"></result>
+		</action>
+		<!-- 在三级指标中，查询三级指标名和id -->
+		<action name="threeqthreeAction" class="threeqthreea">
+			<result type="json"></result>
+		</action>
+		<!-- 在三级指标中，查询三级指标名和id -->
+		<action name="threeqthreedataAction" class="threeqthreedataa">
+			<result type="json"></result>
+		</action>
+		<!-- 三级指标	结束 -->
+		
+		<!-- 填写具体指标	开始 -->
+		<!-- 根据日期查询一级指标 -->
+		<action name="dqOneAction" class="dqone">
+			<result type="json"></result>
+		</action>
+		<!-- 根据日期和符指标id查询二级或三级指标 -->
+		<action name="didqAction" class="didq">
+			<result type="json"></result>
+		</action>
+		<!-- 查询具体指标action -->
+		<action name="datequerydataAction" class="dqda">
+			<result type="json"></result>
+		</action>
+		<!-- 填写具体指标action -->
+		<action name="dataAction" class="da">
+			<result type="json"></result>
+		</action>
+		<!-- 填写具体指标	结束 -->
+		
+		<!-- 指标公式action	开始 -->
+		<action name="formulaAction" class="formulaa">
+			<result  type="json"></result>
+		</action>
+		<!-- 指标公式action	结束 -->		
+		
+		<!-- 指标复用action	开始 -->
+		<action name="dataReuseAction" class="dataReuseAction">
+			<result name="json" type="json"></result>
+		</action>
+		<!-- 指标复用action	结束 -->		
+		
+		<!-- 测试action	开始 -->
+		<action name="testAction" class="testa">
+		</action>
+		<!-- 测试action	结束 -->		
+	</package>
+
+</struts>

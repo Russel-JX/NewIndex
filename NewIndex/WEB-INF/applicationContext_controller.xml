@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> 
+
+<!-- <property name="iud" ref="iudimpl"></property> -->
+	
+	<!-- 用户登录验证和用户的CRUD。模型驱动的属性是new出来的不用定义在bean中 -->
+	<bean id="ua" class="com.controller.UserAction" scope="prototype">
+		<property name="iud" ref="iudimpl"></property>
+	</bean>
+	
+	<!-- 查询所有用户action-->
+	<bean id="uqa" class="com.controller.UserQueryAction"><!-- ？？表格显示数据时，bean中不配置property时，可以显示表格数据；配置property后，无法显示。解决action中不能有参照对象的set方法。 -->
+		<property name="iud2" ref="iudimpl"></property>
+	</bean>
+	
+	<!-- 测试从服务器获取json数据 -->
+	<bean id="sja" class="com.controller.StrutsJsonAction">
+		<property name="iud" ref="iudimpl"></property>
+	</bean>
+	
+	<!-- 一级指标 	开始-->
+	<bean id="onea" class="com.controller.OneAction">
+		<property name="iL1Dao" ref="il1Daoimpl"></property>
+	</bean>
+	<!-- 一级指标 	结束-->
+	
+	<!-- 二级指标 	开始-->
+	<!-- 提交二级指标 -->
+	<bean id="twoa" class="com.controller.TwoAction">
+		<property name="iL2Dao" ref="il2Daoimpl"></property>
+	</bean>
+	<!-- 在二级指标中，查询一级指标名和id -->
+	<bean id="twoqa" class="com.controller.TwoQueryAction">
+		<property name="iL2Dao" ref="il2Daoimpl"></property>
+	</bean>
+	<!-- 二级指标 	结束-->
+	
+	<!-- 三级指标 	开始-->
+	<!-- 提交三级指标 -->
+	<bean id="threea" class="com.controller.ThreeAction">
+		<property name="iL3Dao" ref="il3Daoimpl"></property>
+		<property name="idDao" ref="idataDaoimpl"></property>
+	</bean>
+	<!-- 在三级指标中，查询一级指标名和id -->
+	<bean id="threeqonea" class="com.controller.ThreeQueryOneAction">
+		<property name="iL3Dao" ref="il3Daoimpl"></property>
+	</bean>
+	<!-- 在三级指标中，查询二级指标名和id -->
+	<bean id="threeqtwoa" class="com.controller.ThreeQueryTwoAction" scope="prototype">
+		<property name="iL3Dao" ref="il3Daoimpl"></property>
+	</bean>
+	<!-- 在三级指标中，查询三级指标名和id -->
+	<bean id="threeqthreea" class="com.controller.ThreeQueryThreeAction" scope="prototype">
+		<property name="iL3Dao" ref="il3Daoimpl"></property>
+	</bean>
+	<!-- 在三级指标中，查询三级指标名、id和对应的 具体指标 -->
+	<bean id="threeqthreedataa" class="com.controller.ThreeQueryThreeDataAction">
+		<property name="iL3Dao" ref="il3Daoimpl"></property>
+		<property name="threeqthreeDataService" ref="threeQueryThreeDataServiceImpl"></property>
+	</bean>
+	<!-- 三级指标 	结束-->
+	
+	<!-- 填写具体指标	开始 -->
+	<!-- 根据日期查询一级指标 -->
+	<bean id="dqone" class="com.controller.DateQueryOneAction">
+		<property name="iL3Dao" ref="il3Daoimpl"></property>
+	</bean>
+	<!-- 根据日期和符指标id查询二级或三级指标 -->
+	<bean id="didq" class="com.controller.DateIDQueryAction">
+		<property name="iL3Dao" ref="il3Daoimpl"></property>
+	</bean>
+	<!-- 查询具体指标bean -->
+	<bean id="dqda" class="com.controller.DateQueryDataAction">
+		<property name="iL3Dao" ref="il3Daoimpl"></property>
+	</bean>
+	<!-- 填写具体指标bean -->
+	<bean id="da" class="com.controller.DataAction">
+		<property name="idDao" ref="idataDaoimpl"></property>
+	</bean>
+	<!-- 填写具体指标	结束 -->
+	
+	<!-- 测试用	开始 -->
+	<bean id="testa" class="com.controller.TestAction">
+		<property name="iL1Dao" ref="il1Daoimpl"></property>
+	</bean>
+	<!-- 测试用	结束 -->
+	
+	<!-- 指标公式	开始 -->
+	<bean id="formulaa" class="com.controller.FormulaAction">
+		<property name="formulaDao" ref="formulaDaoimpl"></property>
+	</bean>
+	<!-- 指标公式	结束 -->
+	
+	<!-- 指标复用	开始 -->
+	<bean name="dataReuseAction" class="com.controller.DataReuseAction">
+		<property name="dataReuseService" ref="dataReuseServiceImpl"></property>
+	</bean>
+	<!-- 指标复用	开始 -->
+	
+	
+	
+</beans>
